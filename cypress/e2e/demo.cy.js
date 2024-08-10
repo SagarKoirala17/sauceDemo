@@ -4,12 +4,13 @@ import { credentials } from "./credentials";
 import CartPage from "./pages/cartPage";
 import { generateUniqueName } from './helpers/generateUniqueDetails'
 import CheckoutPage from "./pages/checkout";
+import { generateUniquePostalCode } from "./helpers/generateUniquePostalCode";
+
 describe('E2E Test for Saucedemo', () => {
     const loginPage = new LoginPage();
     const productPage = new ProductPage();
     const cartPage = new CartPage();
-    const { firstName, lastName } = generateUniqueName()
-
+    const checkoutPage = new CheckoutPage()
     before(() => {
         loginPage.visit();
         loginPage.fillUsername(credentials.username);
@@ -23,6 +24,10 @@ describe('E2E Test for Saucedemo', () => {
             productPage.goToCart();
             cartPage.verifyProductInCart(productName);
             cartPage.proceedToCheckout();
+            const { firstName, lastName } = generateUniqueName()
+            const postalCode = generateUniquePostalCode()
+            checkoutPage.fillCheckoutInfo({ firstName, lastName }, postalCode)
+            checkoutPage.continueCheckout()
 
 
         });
