@@ -20,16 +20,20 @@ describe('E2E Test for Saucedemo', () => {
 
     it('Should Login and Purchase the Product', () => {
         productPage.fetchProductName().then((productName) => {
-            productPage.addToCart();
-            productPage.goToCart();
-            cartPage.verifyProductInCart(productName);
-            cartPage.proceedToCheckout();
-            const { firstName, lastName } = generateUniqueName()
-            const postalCode = generateUniquePostalCode()
-            checkoutPage.fillCheckoutInfo({ firstName, lastName }, postalCode)
-            checkoutPage.continueCheckout()
+            productPage.fetchProductPrice().then((productPrice) => {
+                cy.log(productPrice)
+                productPage.addToCart();
+                productPage.goToCart();
+                cartPage.verifyProductInCart(productName);
+                cartPage.verifyProductPrice(productPrice)
+                cartPage.proceedToCheckout();
+                const { firstName, lastName } = generateUniqueName()
+                const postalCode = generateUniquePostalCode()
+                checkoutPage.fillCheckoutInfo({ firstName, lastName }, postalCode)
+                checkoutPage.continueCheckout()
 
 
+            });
         });
     });
 });

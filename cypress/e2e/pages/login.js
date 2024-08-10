@@ -1,6 +1,6 @@
 class LoginPage {
     visit() {
-        cy.visit('/');
+        cy.visit('v1/index.html');
     }
 
     fillUsername(username) {

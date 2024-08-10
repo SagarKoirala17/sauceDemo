@@ -5,6 +5,10 @@ class CartPage {
     verifyProductInCart(productName) {
         cy.contains('.inventory_item_name', productName).should('exist');
     }
+    verifyProductPrice(productPrice) {
+        let price = productPrice.replace('$', '')
+        cy.get('.inventory_item_price').should('have.text', price)
+    }
 
     proceedToCheckout() {
         cy.get('.btn_action').click();
