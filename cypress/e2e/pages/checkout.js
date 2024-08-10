@@ -43,7 +43,7 @@ class CheckoutPage {
     }
 
     finishCheckout() {
-        cy.get('.cart_button').click();
+        cy.get('.btn_action').click();
     }
 }
 

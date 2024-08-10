@@ -5,12 +5,14 @@ import CartPage from "./pages/cartPage";
 import { generateUniqueName } from './helpers/generateUniqueDetails'
 import CheckoutPage from "./pages/checkout";
 import { generateUniquePostalCode } from "./helpers/generateUniquePostalCode";
+import Thankyou from "./pages/thankyou";
 
 describe('E2E Test for Saucedemo', () => {
     const loginPage = new LoginPage();
     const productPage = new ProductPage();
     const cartPage = new CartPage();
     const checkoutPage = new CheckoutPage()
+    const thankYou = new Thankyou()
     before(() => {
         loginPage.visit();
         loginPage.fillUsername(credentials.username);
@@ -34,7 +36,8 @@ describe('E2E Test for Saucedemo', () => {
                 checkoutPage.verifyNameandPrice(productName, productPrice)
                 checkoutPage.verifyPaymentInformation()
                 checkoutPage.verifyShippingInformation()
-
+                checkoutPage.finishCheckout()
+                thankYou.assertThankyou()
 
             });
         });
