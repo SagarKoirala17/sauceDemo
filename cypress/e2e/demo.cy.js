@@ -31,6 +31,9 @@ describe('E2E Test for Saucedemo', () => {
                 const postalCode = generateUniquePostalCode()
                 checkoutPage.fillCheckoutInfo({ firstName, lastName }, postalCode)
                 checkoutPage.continueCheckout()
+                checkoutPage.verifyNameandPrice(productName, productPrice)
+                checkoutPage.verifyPaymentInformation()
+                checkoutPage.verifyShippingInformation()
 
 
             });
