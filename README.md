@@ -12,6 +12,5 @@ The flow includes automating the login process, searching for a product, viewing
 3. ProductDetailsPage.js
 4. CartPage.js
 5. CheckoutPage.js
-Test Scripts: Contains Cypress test scripts that utilize the page objects to perform various scenarios:
-e2e_spec.js
+
 
