@@ -6,6 +6,7 @@ The flow includes automating the login process, searching for a product, viewing
 
 **Project Structure**
 *Page Objects*: Contains reusable components for each page in the e-commerce flow:
+
 LoginPage.js
 ProductSearchPage.js
 ProductDetailsPage.js
