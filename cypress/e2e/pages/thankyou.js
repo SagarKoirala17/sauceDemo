@@ -1,5 +1,4 @@
 
-
 class Thankyou {
     assertThankyou() {
         cy.get('.subheader').should('have.text', 'Finish')
