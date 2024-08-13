@@ -9,9 +9,9 @@ The flow includes automating the login process, searching for a product, viewing
 
 1. LoginPage.js
 2. ProductSearchPage.js
-3. ProductDetailsPage.js
-4. CartPage.js
-5. CheckoutPage.js
+3. CartPage.js
+4. CheckoutPage.js
+5. Thankyou.js
 
 **Setups**
 1. Install node version 18.0.0 directly from the website https://nodejs.org/en
